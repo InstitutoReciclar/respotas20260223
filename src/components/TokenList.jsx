@@ -34,7 +34,7 @@ Esperamos que esta mensagem o(a) encontre bem.
 
 Conforme aprovado pelo Conselho de Administração e comunicado em nossa última reunião, encaminhamos o questionário de autoavaliação do conselho referente ao desempenho do ano de 2025.
 
-O questionário é composto por quatro blocos temáticos. Em cada bloco, há uma série de afirmações com cinco opções de resposta, que indicam o grau de concordância ou discordância. Ao final de cada bloco, há um espaço destinado a comentários adicionais. Ao término do questionário, há ainda um campo opcional para sugestões relacionadas à eficiência do Conselho e sua atuação nos temas estratégicos.
+O questionário é composto por quatro blocos temáticos. Em cada bloco há uma série de afirmações com cinco opções de resposta que indicam o seu grau de concordância com a afirmação (1 - Muito Baixo, 2 - Baixo, 3 - Moderado, 4 - Alto, 5 - Muito Alto). Ao final de cada bloco, há um espaço destinado a comentários adicionais. Ao término do questionário, há ainda um campo opcional para sugestões relacionadas à eficiência do Conselho e sua atuação nos temas estratégicos.
 
 Para acessar o formulário, utilize as informações abaixo:
 
