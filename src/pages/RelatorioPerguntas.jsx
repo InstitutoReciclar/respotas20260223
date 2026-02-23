@@ -27,11 +27,11 @@ ChartJS.register(
 );
 
 const escala = [
-  "1 – Discordo totalmente",
-  "2 – Discordo parcialmente",
-  "3 – Neutro / Não tenho opinião formada",
-  "4 – Concordo parcialmente",
-  "5 – Concordo totalmente",
+  "1 – Muito Baixo",
+  "2 – Baixo",
+  "3 – Moderado",
+  "4 – Alto",
+  "5 – Muito Alto",
 ];
 
 const blocos = [
