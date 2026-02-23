@@ -32,7 +32,7 @@ Prezado(a) ${name},
 
 Esperamos que esta mensagem o(a) encontre bem.
 
-Conforme aprovado pelo Conselho de Administração e comunicado em nossa última reunião, encaminhamos o questionário de autoavaliação referente ao desempenho do ano de 2025.
+Conforme aprovado pelo Conselho de Administração e comunicado em nossa última reunião, encaminhamos o questionário de autoavaliação do conselho referente ao desempenho do ano de 2025.
 
 O questionário é composto por quatro blocos temáticos. Em cada bloco, há uma série de afirmações com cinco opções de resposta, que indicam o grau de concordância ou discordância. Ao final de cada bloco, há um espaço destinado a comentários adicionais. Ao término do questionário, há ainda um campo opcional para sugestões relacionadas à eficiência do Conselho e sua atuação nos temas estratégicos.
 
