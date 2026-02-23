@@ -98,7 +98,7 @@ function getSendURL(user, method, formURL) {
     if (!user.email) return null
     return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
       user.email
-    )}&su=Token de Acesso - Compliance Forms&body=${encodeURIComponent(template)}`
+    )}&su=Autoavaliação Conselho&body=${encodeURIComponent(template)}`
   }
 
   if (method === "whatsapp") {
