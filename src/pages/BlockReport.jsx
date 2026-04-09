@@ -29,6 +29,7 @@ ChartJS.register(
   ChartDataLabels
 );
 
+// Ordem fixa: do pior → melhor
 const OPCOES = [
   "1 – Muito Baixo",
   "2 – Baixo",
@@ -37,7 +38,14 @@ const OPCOES = [
   "5 – Muito Alto",
 ];
 
-const COLORS = ["#ef4444", "#f59e0b", "#3b82f6", "#10b981", "#8b5cf6"];
+// CORES FIXAS (NUNCA mudar posição)
+const COLORS = [
+  "#ef4444", // Vermelho (1)
+  "#f97316", // Laranja (2)
+  "#facc15", // Amarelo (3)
+  "#4ade80", // Verde claro (4)
+  "#166534", // Verde escuro (5)
+];
 
 export default function BlockReport() {
   const [responses, setResponses] = useState({});
@@ -98,21 +106,6 @@ export default function BlockReport() {
       }
     }
 
-    if (bloco.comentario?.resposta) {
-      if (y > 260) {
-        pdf.addPage();
-        y = 15;
-      }
-      pdf.setFont("helvetica", "bold");
-      pdf.setFontSize(12);
-      pdf.text("Comentários finais:", 10, y);
-      y += 5;
-      pdf.setFont("helvetica", "normal");
-      pdf.setFontSize(11);
-      const lines = pdf.splitTextToSize(bloco.comentario.resposta, 180);
-      pdf.text(lines, 10, y);
-    }
-
     pdf.save(`bloco_${blocoKey}.pdf`);
   };
 
@@ -135,7 +128,7 @@ export default function BlockReport() {
             <h2 className="text-2xl font-semibold">{bloco.titulo}</h2>
             <button
               onClick={() => exportBlockPDF(blocoKey)}
-              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+              className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
             >
               Exportar PDF deste bloco
             </button>
@@ -146,15 +139,21 @@ export default function BlockReport() {
             const total = contagem.reduce((a, b) => a + b, 0);
             if (total === 0) return null;
 
-            const filteredOptions = OPCOES.filter((_, idx) => contagem[idx] > 0);
-            const filteredData = contagem.filter((v) => v > 0);
+            // Mantém índice original
+            const filteredIndexes = contagem
+              .map((v, i) => (v > 0 ? i : null))
+              .filter((v) => v !== null);
+
+            const filteredOptions = filteredIndexes.map((i) => OPCOES[i]);
+            const filteredData = filteredIndexes.map((i) => contagem[i]);
+            const filteredColors = filteredIndexes.map((i) => COLORS[i]);
 
             const pieData = {
               labels: filteredOptions,
               datasets: [
                 {
                   data: filteredData,
-                  backgroundColor: COLORS.slice(0, filteredOptions.length),
+                  backgroundColor: filteredColors,
                 },
               ],
             };
@@ -164,7 +163,7 @@ export default function BlockReport() {
               datasets: [
                 {
                   data: filteredData,
-                  backgroundColor: COLORS.slice(0, filteredOptions.length),
+                  backgroundColor: filteredColors,
                 },
               ],
             };
@@ -196,6 +195,7 @@ export default function BlockReport() {
                       }
                     />
                   </div>
+
                   <div className="md:w-1/2">
                     <Bar
                       data={barData}
@@ -217,13 +217,6 @@ export default function BlockReport() {
               </div>
             );
           })}
-
-          {bloco.comentario?.resposta && (
-            <div className="mt-4 p-4 bg-gray-100 rounded">
-              <h4 className="font-semibold">Comentários finais:</h4>
-              <p>{bloco.comentario.resposta}</p>
-            </div>
-          )}
         </div>
       ))}
     </div>
